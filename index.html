@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Celuyy ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff8fab,#ffc2d1,#ffe5ec);
+    color:white;
+    overflow-x:hidden;
+    text-align:center;
+}
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    text-shadow:0 0 20px rgba(255,255,255,.7);
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+.btn{
+    margin-top:30px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4d88;
+    font-size:18px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.card{
+    max-width:900px;
+    margin:40px auto;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:30px;
+}
+
+.card h2{
+    margin-bottom:20px;
+}
+
+.photo{
+    width:300px;
+    max-width:100%;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,.2);
+}
+
+.heart{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+.countdown{
+    font-size:2rem;
+    font-weight:bold;
+}
+
+footer{
+    padding:50px;
+}
+</style>
+
+</head>
+<body>
+
+<section class="hero">
+    <h1>🎂 Happy Birthday Celuyy ❤️</h1>
+
+    <p>
+        Untuk wanita spesial yang selalu membuat hariku lebih indah
+    </p>
+
+    <button class="btn" onclick="bukaHadiah()">
+        💌 Buka Hadiah
+    </button>
+</section>
+
+<div id="isi" style="display:none;">
+
+    <div class="card">
+
+        <h2>💌 Surat Untuk Celuyy</h2>
+
+        <p style="line-height:2;">
+            Selamat ulang tahun Celuyy ❤️<br><br>
+
+            Hari ini adalah hari spesial karena seseorang yang sangat berarti
+            dalam hidupku bertambah usia.
+
+            Terima kasih sudah hadir dan menjadi bagian dari cerita hidupku.
+
+            Semoga semua impianmu tercapai, kesehatan selalu menyertaimu,
+            dan kebahagiaan selalu datang menghampirimu.
+
+            Aku bersyukur bisa mengenalmu dan memiliki banyak kenangan
+            indah bersamamu.
+
+            Happy Birthday Sayang ❤️
+
+            <br><br>
+
+            - Dael
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>📸 Foto Favoritku</h2>
+
+        <img src="foto.jpg" class="photo">
+
+    </div>
+
+    <div class="card">
+
+        <h2>🎵 Lagu Untukmu</h2>
+
+        <audio controls>
+            <source src="lagu.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
+    <div class="card">
+
+        <h2>⏳ Countdown Ulang Tahun Berikutnya</h2>
+
+        <div id="countdown" class="countdown"></div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>❤️ Pesan Dari Dael</h2>
+
+        <p style="line-height:2;">
+            Semoga senyummu selalu ada,
+            langkahmu selalu dimudahkan,
+            dan aku masih diberi kesempatan
+            untuk menemani perjalananmu.
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    Dibuat dengan ❤️ oleh Dael untuk Celuyy
+</footer>
+
+<script>
+
+function bukaHadiah(){
+    document.getElementById("isi").style.display="block";
+
+    window.scrollTo({
+        top:window.innerHeight,
+        behavior:"smooth"
+    });
+}
+
+setInterval(()=>{
+
+    let heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.animationDuration=
+    (Math.random()*3+3)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+
+},300);
+
+const nextBirthday =
+new Date("2027-06-26 00:00:00");
+
+setInterval(()=>{
+
+    const now = new Date();
+
+    const diff = nextBirthday-now;
+
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor(diff%(1000*60*60*24)/(1000*60*60));
+    const m=Math.floor(diff%(1000*60*60)/(1000*60));
+    const s=Math.floor(diff%(1000*60)/1000);
+
+    document.getElementById("countdown").innerHTML=
+    d+" Hari "+h+" Jam "+m+" Menit "+s+" Detik";
+
+},1000);
+
+</script>
+
+</body>
+</html>
